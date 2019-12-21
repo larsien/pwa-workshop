@@ -5,11 +5,22 @@
 애저 블롭 저장소를 정적 웹사이트 호스팅으로 활용하기 위해서는 아래와 같이 설정을 변경해 주어야 합니다.
 
 ```bash
+# Bash
 az storage blob service-properties update \
   --account-name <BLOB_STORAGE_NAME> \
   --static-website true \
   --index-document index.html \
   --404-document 404.html \
+  --verbose
+```
+
+```powershell
+# PowerShell
+az storage blob service-properties update `
+  --account-name <BLOB_STORAGE_NAME> `
+  --static-website true `
+  --index-document index.html `
+  --404-document 404.html `
   --verbose
 ```
 
@@ -19,9 +30,18 @@ az storage blob service-properties update \
 정적 웹사이트 호스팅을 위한 주소를 아래 명령어를 통해 확인합니다.
 
 ```bash
+# Bash
 az storage account show \
   -g <RESOURCE_GROUP_NAME> \
   -n <BLOB_STORAGE_NAME> \
+  --verbose
+```
+
+```powershell
+# PowerShell
+az storage account show `
+  -g <RESOURCE_GROUP_NAME> `
+  -n <BLOB_STORAGE_NAME> `
   --verbose
 ```
 
@@ -72,10 +92,20 @@ npm run test
 애저 CLI를 이용해서 PWA를 애저 블롭 저장소로 수동 배포합니다.
 
 ```bash
+# Bash
 az storage blob upload-batch \
   -s build \
   -d \$web \
   --account-name <BLOB_STORAGE_NAME> \
+  --verbose
+```
+
+```powershell
+# PowerShell
+az storage blob upload-batch `
+  -s build `
+  -d `$web `
+  --account-name <BLOB_STORAGE_NAME> `
   --verbose
 ```
 

@@ -98,6 +98,7 @@ git push origin master
 앞서 애저 CLI 로그인을 위해 생성했던 자격증명 객체를 애저 키 저장소에 등록합니다.
 
 ```bash
+# Bash
 az keyvault set-policy \
   -n <KEY_VAULT_NAME> \
   --spn <CLIENT_ID> \
@@ -105,13 +106,32 @@ az keyvault set-policy \
   --verbose
 ```
 
+```powershell
+# PowerShell
+az keyvault set-policy `
+  -n <KEY_VAULT_NAME> `
+  --spn <CLIENT_ID> `
+  --secret-permissions get list `
+  --verbose
+```
+
 현재 로그인한 사용자도 애저 키 저장소에 등록합니다.
 
 ```bash
+# Bash
 az keyvault set-policy \
   -n <KEY_VAULT_NAME> \
   --upn <USER_PRINCIPAL_NAME> \
   --secret-permissions get set list \
+  --verbose
+```
+
+```powershell
+# PowerShell
+az keyvault set-policy `
+  -n <KEY_VAULT_NAME> `
+  --upn <USER_PRINCIPAL_NAME> `
+  --secret-permissions get set list `
   --verbose
 ```
 
@@ -123,10 +143,20 @@ az keyvault set-policy \
 아래 명령어를 통해 시크릿을 `storageAccountProd` 라는 이름으로 하나 등록합니다.
 
 ```bash
+# Bash
 az keyvault secret set \
   --vault-name <KEY_VAULT_NAME> \
   --name storageAccountProd \
   --value <STORAGE_ACCOUNT_NAME> \
+  --verbose
+```
+
+```bash
+# PowerShell
+az keyvault secret set `
+  --vault-name <KEY_VAULT_NAME> `
+  --name storageAccountProd `
+  --value <STORAGE_ACCOUNT_NAME> `
   --verbose
 ```
 

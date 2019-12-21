@@ -52,9 +52,18 @@ az login
 ### 애저 리소스 그룹 생성 ###
 
 ```bash
+# Bash
 az group create \
   -n <RESOURCE_GROUP_NAME> \
   -l koreacentral \
+  --verbose
+```
+
+```powershell
+# PowerShell
+az group create `
+  -n <RESOURCE_GROUP_NAME> `
+  -l koreacentral `
   --verbose
 ```
 
@@ -87,6 +96,7 @@ az group create \
 그리고 난 후 아래 커맨드를 실행시킵니다.
 
 ```bash
+# Bash
 az group deployment create \
   -n all-in-one \
   -g <RESOURCE_GROUP_NAME> \
@@ -95,8 +105,27 @@ az group deployment create \
   --verbose
 ```
 
+```powershell
+# PowerShell
+az group deployment create `
+  -n all-in-one `
+  -g <RESOURCE_GROUP_NAME> `
+  --template-file resources/azuredeploy.json `
+  --parameters `@resources/azuredeploy.parameters.json `
+  --verbose
+```
+
 > **트러블슈팅**: 만약 ARM 템플릿 실행에 실패할 경우, 앞서 애저 포탈을 통해 만들었던 애저 키 저장소가 완벽하게 지워지지 않았을 수도 있습니다. 이럴 땐 아래 명령어를 통해 애저 키 저장소를 수동으로 완전히 삭제합니다.
 > ```bash
+> # Bash
+> az keyvault purge \
+>   -n <KEY_VAULT_NAME> \
+>   -l koreacentral \
+>   --verbose
+> ```
+>
+> ```powershell
+> # PowerShell
 > az keyvault purge \
 >   -n <KEY_VAULT_NAME> \
 >   -l koreacentral \

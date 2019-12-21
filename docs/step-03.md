@@ -70,8 +70,16 @@ git push origin master
 아래 명령어를 통해 애저 로그인을 위한 자격증명 값을 생성합니다.
 
 ```bash
+# Bash
 az ad sp create-for-rbac \
   -n <SERVICE_PRINCIPAL_NAME> \
+  --sdk-auth
+```
+
+```powershell
+# PowerShell
+az ad sp create-for-rbac `
+  -n <SERVICE_PRINCIPAL_NAME> `
   --sdk-auth
 ```
 
