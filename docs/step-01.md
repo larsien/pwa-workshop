@@ -126,9 +126,9 @@ az group deployment create `
 >
 > ```powershell
 > # PowerShell
-> az keyvault purge \
->   -n <KEY_VAULT_NAME> \
->   -l koreacentral \
+> az keyvault purge `
+>   -n <KEY_VAULT_NAME> `
+>   -l koreacentral `
 >   --verbose
 > ```
 
