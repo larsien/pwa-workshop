@@ -47,6 +47,12 @@ git commit -m <COMMIT_MESSAGE>
 git push origin master
 ```
 
+> **NOTE**: 만약 커맨드라인에서 깃헙으로 푸시할 때 인증 관련 오류가 나면 아래 페이지를 참조해 보세요. 대부분은 인증 정보를 캐시해 두면 해결됩니다.
+>
+> * https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+> * https://help.github.com/en/github/using-git/updating-credentials-from-the-osx-keychain
+> * https://help.github.com/en/github/using-git/caching-your-github-password-in-git
+
 그리고 결과를 확인합니다. 다음에 아래 액션을 추가합니다.
 
 ```yaml
