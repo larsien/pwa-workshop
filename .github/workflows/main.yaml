@@ -1,0 +1,9 @@
+name: public static web app to azure blob storage
+on: push
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v1
